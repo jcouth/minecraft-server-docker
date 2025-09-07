@@ -1,3 +1,5 @@
 .env
-world
-backup
+backup/*
+!backup/.gitkeep
+world/*
+!world/.gitkeep
