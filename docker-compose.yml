@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  minecraft:
+    build: .
+    container_name: minecraft-fabric
+    ports:
+      - "${MINECRAFT_PORT}:25565"
+    volumes:
+      - ./server/config:/minecraft/config
+      - ./server/fabric:/minecraft/fabric
+      - ./server/mods:/minecraft/mods
+      - ./world:/minecraft/world
+      - ./backup:/minecraft/backups
+    restart: unless-stopped
