@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  minecraft:
+    build: .
+    container_name: minecraft-fabric
+    ports:
+      - "25565:25565" # Mine
+      - "25575:25575" # RCON
+    volumes:
+      - ./config:/minecraft/config
+      - ./mods:/minecraft/mods
+      - ./world:/minecraft/world
+      - ./backups:/minecraft/backups
+    environment:
+      - ENABLE_RCON=true
+      - RCON_PASSWORD=minha_senha_segura
+      - RCON_PORT=25575
+    restart: unless-stopped
